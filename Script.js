@@ -4,10 +4,13 @@ const fs = require("fs")
 const uuid = require("uuid")
 const fileUpload = require("express-fileupload")
 const cors = require("cors")
+const jwt = require("jsonwebtoken")
 
 app.use(cors())
 app.use(fileUpload())
 app.use(express.static("images"))
+
+
 
 app.get("/category", (req, res) => {
  let CategoryJson = JSON.parse(fs.readFileSync("./data/Category.json"))
