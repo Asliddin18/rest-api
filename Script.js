@@ -52,7 +52,7 @@ app.delete("/category/:id", (req, res) => {
  for (let i = 0; i < CategoryJson.length; i++) {
   if (CategoryJson[i].id === CategoryId) {
    CategoryDel = true
-   fs.unlinkSync(`images/${CategoryJson[i].CategoryImg}`)
+   fs.unlinkSync(`./images/${CategoryJson[i].CategoryImg}`)
   }
  }
  if (CategoryDel) {
@@ -79,7 +79,7 @@ app.put("/category/:id", (req, res) => {
    CategoryPut = true
    var CategoryNewImg = Date.now() + req.files.CategoryImg.name
 
-   fs.unlinkSync(`images/${CategoryJson[i].CategoryImg}`)
+   fs.unlinkSync(`./images/${CategoryJson[i].CategoryImg}`)
    NewCategoryImg.CategoryImg.mv(`${__dirname}/images/${CategoryNewImg}`)
 
    CategoryJson[i].CategoryName = CategoryReq.CategoryName
